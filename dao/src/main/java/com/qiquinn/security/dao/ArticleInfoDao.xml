@@ -7,10 +7,10 @@
         <result property="title" column="title"/>
         <result property="content" column="content"/>
         <result property="isHander" column="ishand"/>
-        <result property="columnId" column="column_id"/>
-        <result property="createdate" column="createDate"/>
-        <result property="modifydate" column="updataDate"/>
-        <result property="pageviews" column="pageViews"/>
+        <result property="culomnId" column="culomn_id"/>
+        <result property="createDate" column="create_date"/>
+        <result property="updataDate" column="modify_date"/>
+        <result property="pageViews" column="page_views"/>
     </resultMap>
     <select id="findById" resultMap="articleMap" parameterType="int">
         select * from security_article where id = #{id}
