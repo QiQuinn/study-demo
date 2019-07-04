@@ -9,7 +9,7 @@ CREATE TABLE `security_article_type`(
     PRIMARY KEY(`id`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-ADAS
+ADASsadfsafsa
 DROP TABLE IF EXISTS `security_article`;
 CREATE TABLE `security_article` (
   `id` smallint(6) NOT NULL AUTO_INCREMENT,
