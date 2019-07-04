@@ -18,8 +18,8 @@ CREATE TABLE `security_article` (
   `ishander` tinyint(1) DEFAULT NULL,
   `culomn_id` int DEFAULT NULL,
   `create_date` varchar(25) not null,
-  `modifyDate` varchar(25) not null,
-  `pageviews` int not null default 0,
+  `modify_date` varchar(25) not null,
+  `page_views` int not null default 0,
   PRIMARY KEY (`id`),
   foreign key (culomn_id) references security_article_type(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
