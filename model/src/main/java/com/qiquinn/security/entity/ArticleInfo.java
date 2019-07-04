@@ -8,7 +8,7 @@ public class ArticleInfo implements Serializable
     private String title;
     private String content;
     private Integer isHander;
-    private Integer culomnId;
+    private Integer columnId;
     private String createDate;
     private String updataDate;
     private Integer pageViews;
@@ -20,7 +20,7 @@ public class ArticleInfo implements Serializable
                 ", title='" + title + '\'' +
                 ", content='" + content + '\'' +
                 ", isHeader=" + isHander +
-                ", culomnId=" + culomnId +
+                ", culomnId=" + columnId +
                 ", createDate='" + createDate + '\'' +
                 ", updataDate='" + updataDate + '\'' +
                 ", pageViews=" + pageViews +
@@ -87,10 +87,10 @@ public class ArticleInfo implements Serializable
     }
 
     public Integer getCulomnId() {
-        return culomnId;
+        return columnId;
     }
 
     public void setCulomnId(Integer culomnId) {
-        this.culomnId = culomnId;
+        this.columnId = culomnId;
     }
 }

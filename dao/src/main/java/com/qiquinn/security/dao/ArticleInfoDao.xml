@@ -6,8 +6,8 @@
         <id property="id" column="id"/>
         <result property="title" column="title"/>
         <result property="content" column="content"/>
-        <result property="isHander" column="ishand"/>
-        <result property="culomnId" column="culomn_id"/>
+        <result property="isHander" column="ishander"/>
+        <result property="columnId" column="culomn_id"/>
         <result property="createDate" column="create_date"/>
         <result property="updataDate" column="modify_date"/>
         <result property="pageViews" column="page_views"/>
@@ -25,15 +25,15 @@
     <update id="updataData" parameterType="ArticleInfo">
         update security_article s
          set
-            s.title = #{title},s.content=#{content},s.ishander=#{isHeader},
-            s.column_id=#{columnId},s.createdate=#{createDate},s.modifydate=#{updataDate}
+            s.title = #{title},s.content=#{content},s.ishander=#{isHander},
+            s.culomn_id=#{columnId},s.create_date=#{createDate},s.modify_date=#{updataDate}
          where id=#{id}
     </update>
     <select id="findAllData" resultMap="articleMap">
         select * from security_article ;
     </select>
     <insert id="insertData" parameterType="ArticleInfo">
-        insert into  security_article (`title`,`content`,`ishander`,`column_id`,`createdate`,`updatadate`)
+        insert into  security_article (`title`,`content`,`ishander`,`culomn_id`,`create_date`,`modify_date`)
         value (#{title},#{content},#{isHander},#{columnId},#{createDate},#{updataDate})
     </insert>
     <delete id="deleteData" parameterType="ArticleInfo">
