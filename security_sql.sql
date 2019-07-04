@@ -64,7 +64,7 @@ insert into `security_article_type` (article_type) value('热点法规');
 insert into `security_article_type` (article_type) value('政策法规');
 insert into `security_article_type` (article_type) value('热点稿件');
 
-insert into security_article (`title`,content,isHander,culomn_id,createdate,modifydate) value('热烈庆祝型中国成立70周年','习大大发表讲话:dsafasfsafsafasdfasfasfasfsafadsf十大发生发撒的肥肉我去饿饿哇
+insert into security_article (`title`,content,isHander,culomn_id,create_data,modify_date) value('热烈庆祝型中国成立70周年','习大大发表讲话:dsafasfsafsafasdfasfasfasfsafadsf十大发生发撒的肥肉我去饿饿哇
 f十大发生发f十大发生发f十大发生发f十大发生发
 f十大发生发f十大发生发f十大发生发f十大发生发f十大发生发f十大发生发f十大发生发f十大发生发f十大发生发f十大发生发f十大发生发f十大发生发
 f十大发生发f十大发生发f十大发生发f十大发生发f十大发生发f十大发生发f十大发生发
@@ -139,9 +139,9 @@ f十大发生发f十大发生发f十大发生发f十大发生发f十大发生发
 f十大发生发f十大发生发f十大发生发f十大发生发f十大发生发f十大发生发f十大发生发f十大发生发f十大发生发f十大发生发f十大发生发f十大发生发f十大发生发f十大发生发f十大发生发f十大发生发f十大发生发f十大发生发f十大发生发f十大发生发
 ',0,3,'2019-03-04','2019-03-21');
 
-insert into security_article (`title`,content,isHander,culomn_id,createdate,modifydate) value('热烈庆祝型中国成立70周年','习大大发表讲话:dsafasfsafsafasdfasfasfasfsafadsf十大发生发撒的肥肉我去饿饿哇',1,3,'2019-03-04','2019-03-21');
-insert into security_article (`title`,content,isHander,culomn_id,createdate,modifydate) value('关于XXX的通知','位于2019:热天耐热然而父亲的而且我发的',0,1,'2019-03-04','2019-03-21');
-insert into security_article (`title`,content,isHander,culomn_id,createdate,modifydate) value('关于Xqy的通知','XQY is QiQiuinn:dsafasfsafsafasdfasfasfasfsafadsf十大发生发撒的肥肉我去饿饿哇',0,1,'2019-05-04','2019-05-21');
-insert into security_article (`title`,content,isHander,culomn_id,createdate,modifydate) value('法律1','法律一',0,2,'2019-03-04','2019-03-21');
-insert into security_article (`title`,content,isHander,culomn_id,createdate,modifydate) value('法律2','法律二:',0,2,'2019-11-04','2019-11-11');
-insert into security_article (`title`,content,isHander,culomn_id,createdate,modifydate) value('法律3','法律三:',0,2,'2019-11-04','2019-11-11');
+insert into security_article (`title`,content,isHander,culomn_id,create_data,modify_date) value('热烈庆祝型中国成立70周年','习大大发表讲话:dsafasfsafsafasdfasfasfasfsafadsf十大发生发撒的肥肉我去饿饿哇',1,3,'2019-03-04','2019-03-21');
+insert into security_article (`title`,content,isHander,culomn_id,create_data,modify_date) value('关于XXX的通知','位于2019:热天耐热然而父亲的而且我发的',0,1,'2019-03-04','2019-03-21');
+insert into security_article (`title`,content,isHander,culomn_id,create_data,modify_date) value('关于Xqy的通知','XQY is QiQiuinn:dsafasfsafsafasdfasfasfasfsafadsf十大发生发撒的肥肉我去饿饿哇',0,1,'2019-05-04','2019-05-21');
+insert into security_article (`title`,content,isHander,culomn_id,create_data,modify_date) value('法律1','法律一',0,2,'2019-03-04','2019-03-21');
+insert into security_article (`title`,content,isHander,culomn_id,create_data,modify_date) value('法律2','法律二:',0,2,'2019-11-04','2019-11-11');
+insert into security_article (`title`,content,isHander,culomn_id,create_data,modify_date) value('法律3','法律三:',0,2,'2019-11-04','2019-11-11');
