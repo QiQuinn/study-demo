@@ -9,7 +9,6 @@ CREATE TABLE `security_article_type`(
     PRIMARY KEY(`id`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-ADASsadfsafsa
 DROP TABLE IF EXISTS `security_article`;
 CREATE TABLE `security_article` (
   `id` smallint(6) NOT NULL AUTO_INCREMENT,
@@ -37,8 +36,6 @@ CREATE TABLE `security_systembasicinfo` (
   `indentify_code` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-SELECT  * FROM `security_systembasicinfo`;
 
 /*  创建栏目表 */
 DROP TABLE IF EXISTS `security_colum`;
