@@ -1,0 +1,47 @@
+spring:
+  datasource:
+    #使用druid链接数据库
+    druid:
+      password: root
+      db-type: mysql
+      username: root
+      # 高版本需要设置服务器时间:?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8&useSSL=false
+      url: jdbc:mysql://localhost:3306/sercurity?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8&useSSL=false
+      driver-class-name: com.mysql.jdbc.Driver
+  config:
+    name: seccurityapplication
+  #spring环境配置
+  profiles:
+    active: dev
+
+mybatis:
+  #xml扫描位置
+  mapper-locations: classpath:com/qiquinn/security/dao/*Dao.xml
+  #实体类位置，方便xml中写类型
+  type-aliases-package: com.qiquinn.security.entity
+
+dubbo:
+  #注册中心暴露服务
+  registry:
+    #协议和地址
+    address: zookeeper://127.0.0.1:2181
+    check: false
+    #注册中心id
+    id: zookeeper-registry
+  application:
+    name: provider
+    id: dubbo-provider
+  #dubbo协议在20880端口暴露服务
+  protocol:
+    id: dubbo
+    name: dubbo
+    port: 20880
+    #协议访问log
+    accesslog: acess.log
+  #注册监控中心
+  monitor:
+    protocol: registry
+  scan:
+    base-packages: com.qiquinn.security.serviceimpl
+server:
+  port: 8082

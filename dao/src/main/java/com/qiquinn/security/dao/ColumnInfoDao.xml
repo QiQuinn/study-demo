@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qiquinn.security.dao.ColumnInfoDao">
+    <resultMap type="ColumnInfo" id="columninfoList">
+        <id property="id" column="colunm_id"/>
+        <result property="name" column="colunm_name"/>
+        <result property="parentId" column="column_pid"/>
+    </resultMap>
+    <select id="findById" parameterType="int" resultType="ColumnInfo">
+        SELECT * from `security_colum` where id = #{id};
+    </select>
+    <!-- 增加 -->
+    <insert id="insert" parameterType="ColumnInfo">
+        INSERT INTO `security_colum`(`colunm_id`,`colunm_name`,`column_pid`)
+        VALUES (#{id},#{name},#{parentId})
+    </insert>
+    <!-- 删除 -->
+    <delete id="delete" parameterType="ColumnInfo">
+        DELETE FROM `security_colum` WHERE `colunm_id` = #{id}
+    </delete>
+    <!-- 修改 -->
+    <update id="update" parameterType="ColumnInfo">
+        UPDATE `security_colum` s SET s.`colunm_name`=#{name},s.`column_pid`=#{parentId}
+        WHERE s.colunm_id = #{id}
+    </update>
+    <!-- 查询 -->
+    <select id="select" parameterType="ColumnInfo" resultMap="columninfoList">
+        SELECT  * FROM `security_colum`
+    </select>
+</mapper>

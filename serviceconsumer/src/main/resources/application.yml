@@ -1,0 +1,43 @@
+server:
+  port: 8881
+
+spring:
+  datasource:
+    #使用这个鬼链接8.0以上的mysql需要配置mysql用户密码的加密方式my.ini
+    druid:
+      password: root
+      db-type: mysql
+      username: root
+      url: jdbc:mysql://localhost:3306/sercurity?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8&useSSL=false
+      # ?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8&useSSL=false
+      driver-class-name: com.mysql.jdbc.Driver
+
+dubbo:
+  application:
+    name: columncomsumer
+    # Qos 运维监控 一台机器同时运行两个dubbo会报 Qos 端口冲突，更改即可
+    qos-port: 33333
+    qos-enable: true
+    qos-accept-foreign-ip: false
+  registry:
+    # 应用定义了提供方应用信息，用于计算依赖关系；在 dubbo-admin 或 dubbo-monitor 会显示这个名字，方便辨识
+    id: zookeeper-registry
+    # 注册中心协议
+    protocol: zookeeper
+    # 注册中心地址
+    address: 127.0.0.1:2181
+  protocol:
+    # 协议名称
+    name: dubbo
+    # 协议端口
+    port: 20880
+    # 协议访问log
+    accesslog: dubbo-acess.log
+  # 注册监控中心
+  monitor:
+    protocol: registry
+  provider:
+    # 超时时间
+    timeout: 3000
+    # 重试次数
+    retries: 0

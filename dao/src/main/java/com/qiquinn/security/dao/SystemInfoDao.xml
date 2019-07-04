@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qiquinn.security.dao.SystemInfoDao">
+    <resultMap type="SystemInfo" id="systeminfoList">
+        <id property="id" column="id"/>
+        <result property="webName" column="webname"/>
+        <result property="webLogo" column="weblogo"/>
+        <result property="icpCode" column="icpcode"/>
+        <result property="copyRight" column="copyright"/>
+        <result property="keyWords" column="keywords"/>
+        <result property="discribe" column="discribe"/>
+        <result property="indentifyCode" column="indentify_code"/>
+    </resultMap>
+    <!-- 增加 -->
+    <insert id="insert" parameterType="SystemInfo">
+        INSERT INTO `security_systembasicinfo`(`id`,`webname`,`weblogo`,`icpcode`,`copyright`,`keywords`,`discribe`,`indentify_code`)
+        VALUES (#{id},#{webName},#{webLogo},#{icpCode},#{copyRight},#{keyWords},#{discribe},#{indentifyCode})
+    </insert>
+
+    <!-- 删除 -->
+    <delete id="delete" parameterType="SystemInfo">
+        DELETE FROM `security_systembasicinfo` WHERE `id` = #{id}
+    </delete>
+
+    <!-- 修改 -->
+    <update id="update" parameterType="SystemInfo">
+        UPDATE `security_systembasicinfo` s SET s.`webname`=#{webName},s.`weblogo`=#{webLogo},s.`icpcode`=#{icpCode},s.`copyright`=#{copyRight},s.`keywords`=#{keyWords},s.`discribe`=#{discribe},s.`indentify_code`=#{indentifyCode}
+        WHERE s.id = #{id}
+    </update>
+
+    <!-- 查询 -->
+    <select id="select" parameterType="SystemInfo" resultMap="systeminfoList">
+        SELECT  * FROM `security_systembasicinfo`
+    </select>
+
+    <!-- 模糊查询 -->
+    <select id="vagueSelect" parameterType="map" resultMap="systeminfoList" >
+        SELECT * FROM `security_systembasicinfo` WHERE
+        <trim suffixOverrides="and">
+        </trim>
+    </select>
+
+</mapper>

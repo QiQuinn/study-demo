@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qiquinn.security.dao.ArticleInfoDao">
+    <resultMap id="articleMap" type="ArticleInfo">
+        <id property="id" column="id"/>
+        <result property="title" column="title"/>
+        <result property="content" column="content"/>
+        <result property="isHander" column="ishand"/>
+        <result property="columnId" column="column_id"/>
+        <result property="createdate" column="createDate"/>
+        <result property="modifydate" column="updataDate"/>
+        <result property="pageviews" column="pageViews"/>
+    </resultMap>
+    <select id="findById" resultMap="articleMap" parameterType="int">
+        select * from security_article where id = #{id}
+    </select>
+    <select id="findArticleByCulom" resultMap="articleMap" parameterType="map">
+        select *
+            from security_article a, security_article_type b
+            where a.culomn_id = b.id where a.culomn_id = #{culomnId}
+            limit #{page},#{amount};
+    </select>
+    <!-- 没有设置访问量? -->
+    <update id="updataData" parameterType="ArticleInfo">
+        update security_article s
+         set
+            s.title = #{title},s.content=#{content},s.ishander=#{isHeader},
+            s.column_id=#{columnId},s.createdate=#{createDate},s.modifydate=#{updataDate}
+         where id=#{id}
+    </update>
+    <select id="findAllData" resultMap="articleMap">
+        select * from security_article ;
+    </select>
+    <insert id="insertData" parameterType="ArticleInfo">
+        insert into  security_article (`title`,`content`,`ishander`,`column_id`,`createdate`,`updatadate`)
+        value (#{title},#{content},#{isHander},#{columnId},#{createDate},#{updataDate})
+    </insert>
+    <delete id="deleteData" parameterType="ArticleInfo">
+        delete from security_article  where id=#{id}
+    </delete>
+</mapper>
+
+
