@@ -17,7 +17,7 @@ CREATE TABLE `security_article` (
   `content` longtext DEFAULT NULL,
   `ishander` tinyint(1) DEFAULT NULL,
   `culomn_id` int DEFAULT NULL,
-  `createDate` varchar(25) not null,
+  `create_date` varchar(25) not null,
   `modifyDate` varchar(25) not null,
   `pageviews` int not null default 0,
   PRIMARY KEY (`id`),
