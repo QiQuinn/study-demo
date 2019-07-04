@@ -7,7 +7,7 @@ public class ArticleInfo implements Serializable
     private Integer id;
     private String title;
     private String content;
-    private Integer isHeader;
+    private Integer ishander;
     private Integer culomnId;
     private String createDate;
     private String updataDate;
@@ -19,7 +19,7 @@ public class ArticleInfo implements Serializable
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", content='" + content + '\'' +
-                ", isHeader=" + isHeader +
+                ", isHeader=" + ishander +
                 ", culomnId=" + culomnId +
                 ", createDate='" + createDate + '\'' +
                 ", updataDate='" + updataDate + '\'' +
@@ -79,11 +79,11 @@ public class ArticleInfo implements Serializable
     }
 
     public Integer getIsHeader() {
-        return isHeader;
+        return ishander;
     }
 
     public void setIsHeader(Integer isHeader) {
-        this.isHeader = isHeader;
+        this.ishander = isHeader;
     }
 
     public Integer getCulomnId() {
