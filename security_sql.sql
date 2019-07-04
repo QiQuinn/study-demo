@@ -162,6 +162,5 @@ insert into security_article (`title`,content,ishander,culomn_id,create_date,mod
 insert into security_article (`title`,content,ishander,culomn_id,create_date,modify_date) value('法律1','法律一',0,2,'2019-03-04','2019-03-21');
 insert into security_article (`title`,content,ishander,culomn_id,create_date,modify_date) value('法律2','法律二:',0,2,'2019-11-04','2019-11-11');
 insert into security_article (`title`,content,ishander,culomn_id,create_date,modify_date) value('法律3','法律三:',0,2,'2019-11-04','2019-11-11');
-insert into security_article (`title`,content,ishander,culomn_id,create_date,modify_date) value('关于XXX的通知','位于2019:热天耐热然而父亲的而且我发的',0,1,'2019-03-04','2019-03-21')	Error Code: 1054. Unknown column 'create_data' in 'field list'	0.000 sec
 
 
