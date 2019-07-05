@@ -17,7 +17,7 @@ public class ArticleInfo implements Serializable
     private String title;
     @NotEmpty(message = "文章内容不能为空")
     private String content;
-    //@NotEmpty只能用在string上，@NotNull可用
+    //@NotEmpty只能用在string上，@NotNull可用。
     @NotNull(message = "是否置顶不能为空")
     @TrueOrFalse(message = "置顶参数不合法")
     private Integer isHander; 
