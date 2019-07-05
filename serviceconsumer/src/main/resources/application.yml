@@ -5,7 +5,7 @@ spring:
   datasource:
     #使用这个鬼链接8.0以上的mysql需要配置mysql用户密码的加密方式my.ini
     druid:
-      password: root
+      password: 123456
       db-type: mysql
       username: root
       url: jdbc:mysql://localhost:3306/sercurity?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8&useSSL=false
