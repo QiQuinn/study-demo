@@ -9,6 +9,7 @@ import java.util.regex.Pattern;
 
 /**
  * Created by Administrator on 2019/7/5.
+ * 消息验证：日期注解功能实现类
  */
 public class DateVelidtor implements ConstraintValidator<DateVertify,Object>
 {
