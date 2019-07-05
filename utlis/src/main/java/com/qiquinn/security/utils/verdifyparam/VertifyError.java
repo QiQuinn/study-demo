@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 
 /**
  * Created by QiQuinn on 2019/7/4.
- * 字段验证功能：验证错误消息处类
+ * 字段验证功能：验证错误消息处类。
  */
 @ControllerAdvice
 public class VertifyError

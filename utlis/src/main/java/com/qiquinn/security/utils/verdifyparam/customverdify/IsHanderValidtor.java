@@ -7,7 +7,7 @@ import javax.validation.ConstraintValidatorContext;
 
 /**
  * Created by QiQuinn on 2019/7/5.
- * 消息验证：1 0 验证实现类
+ * 消息验证：1 0 验证实现类。
  */
 public class IsHanderValidtor implements ConstraintValidator<TrueOrFalse,Object>
 {

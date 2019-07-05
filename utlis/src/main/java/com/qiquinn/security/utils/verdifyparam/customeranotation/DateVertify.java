@@ -12,7 +12,7 @@ import java.lang.annotation.Target;
 
 /**
  * Created by QiQuinn on 2019/7/5.
- * 日期验证注释。
+ * 日期验证注释
  */
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)

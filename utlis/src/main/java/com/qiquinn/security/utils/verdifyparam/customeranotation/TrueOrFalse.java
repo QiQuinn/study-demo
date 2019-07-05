@@ -11,7 +11,7 @@ import java.lang.annotation.Target;
 
 /**
  * Created by QiQuinn on 2019/7/5.
- * 字段验证功能：数字1 0 验证类
+ * 字段验证功能：数字1 0 验证类。
  */
 @Target(ElementType.FIELD)  //作用于的类型，此处为对象的属性s
 @Retention(RetentionPolicy.RUNTIME)  //运行时生效
