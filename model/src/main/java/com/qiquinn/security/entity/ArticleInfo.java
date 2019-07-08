@@ -1,8 +1,8 @@
 package com.qiquinn.security.entity;
 
+import com.qiquinn.security.utils.verdifyparam.customeranotation.IsHander;
 import com.qiquinn.security.utils.verdifyparam.customeranotation.DateVertify;
 import com.qiquinn.security.utils.verdifyparam.customeranotation.IdCard;
-import com.qiquinn.security.utils.verdifyparam.customeranotation.TrueOrFalse;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -23,8 +23,7 @@ public class ArticleInfo implements Serializable
     @NotEmpty(message = "文章内容不能为空")
     private String content;
     //@NotEmpty只能用在string上，@NotNull可用
-    @NotNull(message = "是否置顶不能为空" ,groups = {ArticleInfo.class,AbstractMethodError.class})
-    @TrueOrFalse(message = "置顶参数不合法")
+    @IsHander(message = "标题参数不合法")
     private Integer isHander;
     @NotNull(message = "所属栏目不能为空")
     private Integer columnId;
@@ -36,7 +35,24 @@ public class ArticleInfo implements Serializable
     private String updataDate;
     private Integer pageViews;
     @IdCard
-    private String idCared;
+    private String idCard;
+
+
+    public Integer getIsHander() {
+        return isHander;
+    }
+
+    public void setIsHander(Integer isHander) {
+        this.isHander = isHander;
+    }
+
+    public Integer getColumnId() {
+        return columnId;
+    }
+
+    public void setColumnId(Integer columnId) {
+        this.columnId = columnId;
+    }
 
     @Override
     public String toString() {
@@ -49,16 +65,16 @@ public class ArticleInfo implements Serializable
                 ", createDate='" + createDate + '\'' +
                 ", updataDate='" + updataDate + '\'' +
                 ", pageViews=" + pageViews +
-                ", idCared='" + idCared + '\'' +
+                ", idCard='" + idCard + '\'' +
                 '}';
     }
 
-    public String getIdCared() {
-        return idCared;
+    public String getIdCard() {
+        return idCard;
     }
 
-    public void setIdCared(String idCared) {
-        this.idCared = idCared;
+    public void setIdCard(String idCard) {
+        this.idCard = idCard;
     }
 
     public Integer getPageViews() {
@@ -112,14 +128,6 @@ public class ArticleInfo implements Serializable
         this.content = content;
     }
 
-    public Integer getIsHeader() {
-        return isHander;
-    }
-
-    public void setIsHeader(Integer isHeader) {
-        this.isHander = isHeader;
-    }
-
     public Integer getCulomnId() {
         return columnId;
     }
@@ -127,4 +135,5 @@ public class ArticleInfo implements Serializable
     public void setCulomnId(Integer culomnId) {
         this.columnId = culomnId;
     }
+
 }
