@@ -11,22 +11,20 @@ import javax.validation.ConstraintValidatorContext;
  */
 public class IsHanderValidtor implements ConstraintValidator<TrueOrFalse,Object>
 {
-    private int value;
-    private String message;
-
 
     @Override
     public void initialize(TrueOrFalse constraintAnnotation) {
-        this.value = constraintAnnotation.value();
-        message = constraintAnnotation.message();
-        System.out.println("============ message : "+message);
+
     }
 
     @Override
     public boolean isValid(Object obj, ConstraintValidatorContext constraintValidatorContext) {
+        System.out.println("obj is int: "+(obj instanceof String)
+        +"   ：  "+ obj);
         if(obj instanceof Integer)
         {
             Integer status = (Integer)obj;
+            System.out.println(status);
             if( status == 1 || status ==0 )
             {
                 return true;

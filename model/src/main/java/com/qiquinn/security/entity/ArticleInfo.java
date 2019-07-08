@@ -1,6 +1,7 @@
 package com.qiquinn.security.entity;
 
 import com.qiquinn.security.utils.verdifyparam.customeranotation.DateVertify;
+import com.qiquinn.security.utils.verdifyparam.customeranotation.IdCard;
 import com.qiquinn.security.utils.verdifyparam.customeranotation.TrueOrFalse;
 
 import javax.validation.constraints.NotEmpty;
@@ -8,8 +9,12 @@ import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 /**
- * create by QiQuinn
- */
+  * @Author:QiQuinn
+  * @Desicription: 文章列表
+  * @Date:Created in 2019/7/8 14:25
+  * @Modified By:
+  */
+
 public class ArticleInfo implements Serializable
 {
     private Integer id;
@@ -30,6 +35,8 @@ public class ArticleInfo implements Serializable
     @DateVertify(message = "日期参数不合法")
     private String updataDate;
     private Integer pageViews;
+    @IdCard
+    private String idCared;
 
     @Override
     public String toString() {
@@ -37,12 +44,21 @@ public class ArticleInfo implements Serializable
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", content='" + content + '\'' +
-                ", isHeader=" + isHander +
-                ", culomnId=" + columnId +
+                ", isHander=" + isHander +
+                ", columnId=" + columnId +
                 ", createDate='" + createDate + '\'' +
                 ", updataDate='" + updataDate + '\'' +
                 ", pageViews=" + pageViews +
+                ", idCared='" + idCared + '\'' +
                 '}';
+    }
+
+    public String getIdCared() {
+        return idCared;
+    }
+
+    public void setIdCared(String idCared) {
+        this.idCared = idCared;
     }
 
     public Integer getPageViews() {
