@@ -18,9 +18,9 @@ public class ArticleInfo implements Serializable
     @NotEmpty(message = "文章内容不能为空")
     private String content;
     //@NotEmpty只能用在string上，@NotNull可用
-    @NotNull(message = "是否置顶不能为空")
+    @NotNull(message = "是否置顶不能为空" ,groups = {ArticleInfo.class,AbstractMethodError.class})
     @TrueOrFalse(message = "置顶参数不合法")
-    private Integer isHander; 
+    private Integer isHander;
     @NotNull(message = "所属栏目不能为空")
     private Integer columnId;
 //  @Pattern(regexp = "((((19|20)\\d{2})-(0?(1|[3-9])|1[012])-(0?[1-9]|[12]\\d|30))|(((19|20)\\d{2})-(0?[13578]|1[02])-31)|(((19|20)\\d{2})-0?2-(0?[1-9]|1\\d|2[0-8]))|((((19|20)([13579][26]|[2468][048]|0[48]))|(2000))-0?2-29))$")
