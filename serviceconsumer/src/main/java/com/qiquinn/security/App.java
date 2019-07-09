@@ -13,7 +13,7 @@ import org.springframework.context.annotation.ComponentScan;
 @EnableDubboConfig
 @DubboComponentScan(basePackages = "com.qiquinn.security.controller")
 @EnableAutoConfiguration
-@ComponentScan(basePackages = "com.qiquinn.security.controller")
+@ComponentScan("com.qiquinn.security.aspect,com.qiquinn.security.controller")
 public class App 
 {
     public static void main( String[] args )
