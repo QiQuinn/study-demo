@@ -30,7 +30,6 @@ public class ArticleInfo implements Serializable
                 ", createDate='" + createDate + '\'' +
                 ", updataDate='" + updataDate + '\'' +
                 ", pageViews=" + pageViews +
-                ", idCard='" + idCard + '\'' +
                 '}';
     }
 
@@ -47,16 +46,6 @@ public class ArticleInfo implements Serializable
     @DateVertify(message = "日期参数不合法")
     private String updataDate;
     private Integer pageViews;
-//    @IdCard(message = "身份证验证错误")
-    private String idCard;
-
-    public String getIdCard() {
-        return idCard;
-    }
-
-    public void setIdCard(String idCard) {
-        this.idCard = idCard;
-    }
 
     public Integer getIsHander() {
         return isHander;
