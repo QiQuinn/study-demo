@@ -40,6 +40,17 @@ public class DateUtils
 
     }
 
+    /**
+      * @Author:QiQuinn
+      * @Desicription: 验证年月日是否满足规则
+      * @Date:Created in 2019/7/9 14:49
+      * @param strYear 年份
+    	 * @param strMonth 月份
+    	 * @param strDay  天数
+      *@return boolean 是否返祖
+      * @Modified By:
+      */
+
     public static boolean checkMonthAndDay(String strYear,String strMonth,String strDay)
     {
         int month = Integer.valueOf(strMonth);
@@ -75,6 +86,14 @@ public class DateUtils
         return true;
     }
 
+    /**
+      * @Author:QiQuinn
+      * @Desicription: 是否是闰年
+      * @Date:Created in 2019/7/9 14:50
+      * @param year  年份
+      *@return boolean true-闰年  false-平年
+      * @Modified By:
+      */
     public static boolean isLeapYear(String year)
     {
         if(year==null)

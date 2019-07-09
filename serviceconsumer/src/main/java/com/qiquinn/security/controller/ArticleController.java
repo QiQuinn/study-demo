@@ -3,6 +3,7 @@ package com.qiquinn.security.controller;
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.qiquinn.security.entity.ArticleInfo;
 import com.qiquinn.security.service.ArticleService;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -33,7 +34,7 @@ public class ArticleController
 
 
     @RequestMapping(value = "/insert", method = RequestMethod.POST)
-    private void insertArticle(@RequestBody @Valid ArticleInfo article)
+    public void insertArticle(@RequestBody @Valid ArticleInfo article)
     {
         System.out.println(article.toString());
         articleService.insert(article);

@@ -9,8 +9,11 @@ import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 /**
- * create by QiQuinn
- */
+  * @Author:QiQuinn
+  * @Desicription: 文章实体类
+  * @Date:Created in 2019/7/9 14:36
+  * @Modified By:
+  */
 public class ArticleInfo implements Serializable
 {
     private Integer id;
@@ -18,21 +21,6 @@ public class ArticleInfo implements Serializable
     private String title;
     @NotEmpty(message = "文章内容不能为空")
     private String content;
-
-    @Override
-    public String toString() {
-        return "ArticleInfo{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", content='" + content + '\'' +
-                ", isHander=" + isHander +
-                ", columnId=" + columnId +
-                ", createDate='" + createDate + '\'' +
-                ", updataDate='" + updataDate + '\'' +
-                ", pageViews=" + pageViews +
-                '}';
-    }
-
     //@NotEmpty只能用在string上，@NotNull可用
     @NotNull(message = "是否置顶不能为空")
     @IsHander(message = "栏目置顶参数不正确")
@@ -121,4 +109,20 @@ public class ArticleInfo implements Serializable
     public void setCulomnId(Integer culomnId) {
         this.columnId = culomnId;
     }
+
+
+    @Override
+    public String toString() {
+        return "ArticleInfo{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", content='" + content + '\'' +
+                ", isHander=" + isHander +
+                ", columnId=" + columnId +
+                ", createDate='" + createDate + '\'' +
+                ", updataDate='" + updataDate + '\'' +
+                ", pageViews=" + pageViews +
+                '}';
+    }
+
 }

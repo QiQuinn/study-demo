@@ -97,7 +97,6 @@ public class IdCardUtils
       * @return java.lang.String
       * @Modified By:
       */
-
     public static String calculatePowerCode(int[] idCardArray)
     {
         int result = 0;
@@ -108,6 +107,8 @@ public class IdCardUtils
         }
         return refNumber[result%11];
     }
+
+
 
     /**
       * @Author:QiQuinn
