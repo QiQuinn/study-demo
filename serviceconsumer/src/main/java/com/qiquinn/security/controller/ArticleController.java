@@ -6,6 +6,8 @@ import com.qiquinn.security.service.ArticleService;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.HashMap;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/article")
@@ -14,12 +16,19 @@ public class ArticleController
     @Reference
     private ArticleService articleService;
 
-    @RequestMapping(value = "{id}",method = RequestMethod.GET)
+    @RequestMapping(value = "/{id}",method = RequestMethod.GET)
     @ResponseBody
-    private ArticleInfo getAriticleById(Integer id)
+    public Map<String,Object> getSAriticleById(@PathVariable(value = "id") Integer id)
     {
-        System.out.println("getiid= "+id);
-        return articleService.findById(2);
+        System.out.println("id= "+id);
+        ArticleInfo articleInfo = articleService.findById(id);
+        Map<String,Object> resultMap = new HashMap<String,Object>();
+        resultMap.put("ret","返回码");
+        resultMap.put("msg","返回信息");
+        resultMap.put("code","返回码编号");
+        resultMap.put("message","");
+        resultMap.put("data",articleInfo);
+        return resultMap;
     }
 
 

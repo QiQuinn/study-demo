@@ -2,7 +2,7 @@ spring:
   datasource:
     #使用druid链接数据库
     druid:
-      password: 123456
+      password: root
       db-type: mysql
       username: root
       # 高版本需要设置服务器时间:?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8&useSSL=false
@@ -28,6 +28,7 @@ dubbo:
     check: false
     #注册中心id
     id: zookeeper-registry
+    timeout: 20000
   application:
     name: provider
     id: dubbo-provider
@@ -43,5 +44,7 @@ dubbo:
     protocol: registry
   scan:
     base-packages: com.qiquinn.security.serviceimpl
+  provider:
+    timeout: 20000
 server:
   port: 8082
