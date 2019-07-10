@@ -13,11 +13,22 @@ public class CustomerExpection extends RuntimeException {
     /* 报错代码*/
     private Integer code;
 
-    public CustomerExpection(Integer code,String message,String errorClass)
+    private String function;
+
+    public String getFunction() {
+        return function;
+    }
+
+    public void setFunction(String function) {
+        this.function = function;
+    }
+
+    public CustomerExpection(Integer code, String message, String function, Object errorClass)
     {
         super(message);
-        this.errorClass = errorClass;
+        this.errorClass = errorClass.getClass().getName();
         this.code = code;
+        this.function = function;
     }
 
     public Integer getCode() {
@@ -38,6 +49,6 @@ public class CustomerExpection extends RuntimeException {
 
     @Override
     public String toString() {
-        return this.getErrorClass()+": "+super.toString();
+        return errorClass+"."+function+":"+getClass().getSimpleName()+": "+getLocalizedMessage();
     }
 }

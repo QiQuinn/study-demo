@@ -39,8 +39,7 @@ public class ExceptionDeal
     @ResponseStatus(value = HttpStatus.EXPECTATION_FAILED)
     public Map<String,Object> defualtErrorHandler(CustomerExpection exception)
     {
-        System.out.println("================ 全局异常捕获 ==================");
-        loggers.error(exception.toString(), exception);
+        loggers.error(exception.toString(),exception);
         return ResultUtils.error(exception.getCode(),exception.getMessage());
     }
 
