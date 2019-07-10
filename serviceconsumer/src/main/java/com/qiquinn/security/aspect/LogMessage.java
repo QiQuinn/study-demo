@@ -1,12 +1,15 @@
 package com.qiquinn.security.aspect;
 
 
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
-import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * @Author:QiQuinn
@@ -25,8 +28,32 @@ public class LogMessage
     public void LogMessage(){}
 
     @Before("LogMessage()")
-    public void log()
+    public void before(JoinPoint joinPoint)
     {
-        System.out.println("aspect running!");
+        ServletRequestAttributes servletRequestAttributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+        HttpServletRequest request = servletRequestAttributes.getRequest();
+        logger.info("request: url={}",request.getRequestURL());
+
+        logger.info("request: method={}",request.getMethod());
+
+        logger.info("request: ip={}",request.getRemoteAddr());
+
+        logger.info("request: class_method={}",joinPoint.getSignature().getDeclaringTypeName()+"."+joinPoint.getSignature().getName());
+
+        logger.info("request: args={}",joinPoint.getArgs());
+    }
+
+    @After("LogMessage()")
+    public void after()
+    {
+
+    }
+
+    @AfterReturning(returning = "object",pointcut = "LogMessage()")
+    public void around(Object object)
+    {
+        if(object==null)
+            return ;
+        logger.info("response={}",object.toString());
     }
 }

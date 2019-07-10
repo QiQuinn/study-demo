@@ -1,0 +1,63 @@
+package com.qiquinn.security.utils.resultinfo;
+
+import com.qiquinn.security.utils.Exceptions.ErrorEnum;
+
+import java.util.HashMap;
+import java.util.Map;
+
+/**
+ * @Author:QiQuinn
+ * @Desicription: 返回信息处理类
+ * @Date:Created in 2019/7/10
+ * @Modified By:
+ */
+public class Result extends HashMap<String,Object>
+{
+    /**
+      * @Author:QiQuinn
+      * @Desicription: 成功信息返回数据
+      * @Date:Created in 2019/7/10 9:41
+      * @param object 返回的数据
+      * @Modified By:
+      */
+    public Map<String,Object> putSuccess(Object object)
+    {
+        this.put("ret",true);
+        this.put("msg", ErrorEnum.SUSSEC.getMsg());
+        this.put("code", ErrorEnum.SUSSEC.getCode());
+        this.put("message","");
+        this.put("data",object);
+        return this;
+    }
+    /**
+      * @Author:QiQuinn
+      * @Desicription:  成功信息无返回数据
+      * @Date:Created in 2019/7/10 9:42
+      * @Modified By:
+      */
+    public Map<String,Object> putSuccess()
+    {
+        this.put("ret",true);
+        this.put("msg", ErrorEnum.SUSSEC.getMsg());
+        this.put("code", ErrorEnum.SUSSEC.getCode());
+        this.put("message","");
+        return this;
+    }
+
+    /**
+      * @Author:QiQuinn
+      * @Desicription: 错误信息
+      * @Date:Created in 2019/7/10 9:43
+      * @param code    错误码
+      * @param message 错误信息
+      * @Modified By:
+      */
+    public Map<String,Object> putError(Integer code,String message)
+    {
+        this.put("ret",false);
+        this.put("msg", "操作失败");
+        this.put("code",code);
+        this.put("message",message);
+        return this;
+    }
+}
