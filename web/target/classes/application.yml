@@ -13,18 +13,6 @@ spring:
   #spring环境配置
   profiles:
     active: dev
-  redis:
-    database: 0
-    host: 127.0.0.1
-    port: 6379
-    password:
-    timeout: 5000
-    lettuce:
-      pool:
-        max-active: 8
-        max-idle: 8
-        max-wait: 3
-        min-idle: 0
 
 mybatis:
   #xml扫描位置
@@ -59,7 +47,7 @@ dubbo:
   provider:
     timeout: 20000
 server:
-  port: 8082
+  port: 2333
   #ssl:
     #key-store: qiquinn.keystore
     #key-password: qiquinn

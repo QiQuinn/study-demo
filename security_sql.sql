@@ -62,6 +62,25 @@ CREATE TABLE `security_article` (
   foreign key (culomn_id) references security_article_type(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+/** 用户列表 **/
+DROP TABLE IF EXISTS `security_user`;
+CREATE TABLE `security_user`(
+	`id` int NOT NULL auto_increment,
+    `username` varchar(20) NOT NULL,
+    `password` varchar(20) NOT NULL,
+    `pictrue_url` varchar(55) default null,
+    `nikename` varchar(20) default NULL,
+    `sex` varchar(3) default null,
+    `hibit` varchar(50) default null,
+    `birthday` varchar(12) default null,
+    `age` int NOT NULL,
+	`create_date` varchar(25) not null,
+    `modify_date` varchar(25) not null,
+    primary key(`id`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `security_user`(`username`,`password`,`pictrue_url`,`nikename`,`sex`,`hibit`,`birthday`,`age`,`create_date`,`modify_date`)
+        VALUES ('roolt','root',null,'qiqi',null,null,null,23,'2019-12-22','2019-12-22');
 
 insert into `security_colum` (colunm_name,column_pid) value ('前台',0);
 insert into `security_colum` (colunm_name,column_pid) value ('后台',0);

@@ -2,6 +2,7 @@ package com.qiquinn.security.utils;
 
 import com.qiquinn.security.utils.resultinfo.Result;
 
+import javax.validation.constraints.Null;
 import java.util.Map;
 
 /**
@@ -19,10 +20,16 @@ public class ResultUtils
         return result.putSuccess(object);
     }
 
-    public static Map<String,Object> seccuss()
+    public static Map<String,Object> seccuss(String msg,Object object)
     {
         Result result = new Result();
-        return result.putSuccess();
+        return result.putSuccess(msg,object);
+    }
+
+    public static Map<String,Object> seccuss(String msg)
+    {
+        Result result = new Result();
+        return result.putSuccess(msg);
     }
 
     public static Map<String,Object> error(Integer code,String message)

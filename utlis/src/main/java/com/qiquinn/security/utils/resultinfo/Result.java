@@ -1,6 +1,6 @@
 package com.qiquinn.security.utils.resultinfo;
 
-import com.qiquinn.security.utils.Exceptions.ErrorEnum;
+import com.qiquinn.security.utils.Exceptions.MessageEnum;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -23,9 +23,25 @@ public class Result extends HashMap<String,Object>
     public Map<String,Object> putSuccess(Object object)
     {
         this.put("ret",true);
-        this.put("msg", ErrorEnum.SUSSEC.getMsg());
-        this.put("code", ErrorEnum.SUSSEC.getCode());
-        this.put("message","");
+        this.put("msg", MessageEnum.SUSSECC.getMsg());
+        this.put("code", MessageEnum.SUSSECC.getCode());
+        this.put("message"," ");
+        this.put("data",object);
+        return this;
+    }
+    /**
+     * @Author:QiQuinn
+     * @Desicription: 成功信息返回数据
+     * @Date:Created in 2019/7/10 9:41
+     * @param object 返回的数据
+     * @Modified By:
+     */
+    public Map<String,Object> putSuccess(String msg,Object object)
+    {
+        this.put("ret",true);
+        this.put("msg", MessageEnum.SUSSECC.getMsg());
+        this.put("code", MessageEnum.SUSSECC.getCode());
+        this.put("message",msg);
         this.put("data",object);
         return this;
     }
@@ -38,9 +54,23 @@ public class Result extends HashMap<String,Object>
     public Map<String,Object> putSuccess()
     {
         this.put("ret",true);
-        this.put("msg", ErrorEnum.SUSSEC.getMsg());
-        this.put("code", ErrorEnum.SUSSEC.getCode());
+        this.put("msg", MessageEnum.SUSSECC.getMsg());
+        this.put("code", MessageEnum.SUSSECC.getCode());
         this.put("message","");
+        return this;
+    }
+    /**
+     * @Author:QiQuinn
+     * @Desicription:  成功信息无返回数据
+     * @Date:Created in 2019/7/10 9:42
+     * @Modified By:
+     */
+    public Map<String,Object> putSuccess(String msg)
+    {
+        this.put("ret",true);
+        this.put("msg", MessageEnum.SUSSECC.getMsg());
+        this.put("code", MessageEnum.SUSSECC.getCode());
+        this.put("message",msg);
         return this;
     }
 

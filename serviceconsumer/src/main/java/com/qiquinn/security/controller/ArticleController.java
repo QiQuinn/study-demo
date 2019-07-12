@@ -4,9 +4,8 @@ import com.alibaba.dubbo.config.annotation.Reference;
 import com.qiquinn.security.entity.ArticleInfo;
 import com.qiquinn.security.service.ArticleService;
 import com.qiquinn.security.utils.Exceptions.CustomerExpection;
-import com.qiquinn.security.utils.Exceptions.ErrorEnum;
+import com.qiquinn.security.utils.Exceptions.MessageEnum;
 import com.qiquinn.security.utils.ResultUtils;
-import com.qiquinn.security.utils.resultinfo.Result;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -26,8 +25,8 @@ public class ArticleController
         ArticleInfo articleInfo = articleService.findById(id);
         if(articleInfo==null)
         {
-            throw new CustomerExpection(ErrorEnum.ERROR_USER_NULL.getCode()
-                    ,ErrorEnum.ERROR_USER_NULL.getMsg()
+            throw new CustomerExpection(MessageEnum.ERROR_USER_NULL.getCode()
+                    , MessageEnum.ERROR_USER_NULL.getMsg()
                     ,"getAriticleById",this);
         }
         return ResultUtils.seccuss(articleInfo);

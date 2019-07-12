@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qiquinn.security.dao.UserDao">
+    <resultMap id="userMap" type="User">
+        <id column="id" property="id"/>
+        <result column="username" property="username"/>
+        <result column="password" property="password"/>
+        <result column="nikename" property="nikename"/>
+        <result column="pictrue_url" property="picUrl"/>
+        <result column="sex" property="sex"/>
+        <result column="hibit" property="hibit"/>
+        <result column="birthday" property="birthday"/>
+        <result column="age" property="age"/>
+        <result column="create_date" property="createDate"/>
+        <result column="modify_date" property="modifyDate"/>
+    </resultMap>
+    <select id="findById" parameterType="int" resultMap="userMap">
+        SELECT * FROM security_user HWERE id=#{id};
+    </select>
+    <insert id="insertData" parameterType="User">
+        INSERT INTO `security_user`(`username`,`password`,`pictrue_url`,`nikename`,`sex`,`hibit`,`birthday`,`age`,`create_date`,`modify_date`)
+        VALUES (#{username},#{password},#{picUrl},#{nikename},#{sex},#{hibit},#{birthday},#{age},#{createDate},#{modifyDate})
+    </insert>
+    <update id="updataData" parameterType="User">
+        UPDATE `security_user`  SET `username`=#{username},`password`=#{password},
+        `pictrue_url`=#{picUrl},`nikename`=#{nikename},`sex`=#{sex},`hibit`=#{hibit},
+        `birthday`=#{birthday},`age`=#{age},`create_date`=#{createDate},
+        `modify_date`=#{modifyDate} WHERE id=#{id}
+    </update>
+    <delete id="deleteData" parameterType="User">
+        DELETE FROM `security_user` WHERE id=#{id}
+    </delete>
+    <select id="findAllData" resultMap="userMap">
+        SELECT * from `security_user`;
+    </select>
+    <select id="login" resultMap="userMap" parameterType="String">
+        SELECT * FROM `security_user` WHERE username=#{username} AND password=#{password}
+    </select>
+    <select id="findUserByUserName" resultMap="userMap">
+        SELECT * FROM `security_user` WHERE username=#{username}
+    </select>
+</mapper>

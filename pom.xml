@@ -16,6 +16,7 @@
         <module>serviceimpl</module>
         <module>serviceconsumer</module>
         <module>utlis</module>
+        <module>web</module>
     </modules>
 
     <parent>

@@ -63,7 +63,7 @@ public class ExceptionDeal
                     .map(FieldError::getDefaultMessage)
                     .collect(Collectors.joining(" | "));
         }
-        loggers.error("参数验证错误:{}"+errorMessage);
+        loggers.error("参数验证错误: "+errorMessage+": "+ex.getLocalizedMessage());
         return ResultUtils.error(1111,errorMessage);
     }
 }
