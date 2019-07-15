@@ -34,7 +34,7 @@ public class TestController
         params.put("password",password);
         try
         {
-            String result = HttpUtils.send("http://192.168.150.1:8881/user/login/",params,"utf-8");
+            String result = HttpUtils.send("http://192.168.96.1:8881/user/login/",params,"utf-8");
             System.out.println("web1登陆返回的数据: "+result);
             JSONObject jsonObject = JSON.parseObject(result);
             if(jsonObject.getInteger("code")==0)
