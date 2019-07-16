@@ -34,16 +34,16 @@ public class TestController
         params.put("password",password);
         try
         {
-            String result = HttpUtils.send("http://192.168.96.1:8881/user/login/",params,"utf-8");
+            String result = HttpUtils.send("http://192.168.96.1:8881/user/login",params,"utf-8");
             System.out.println("web1登陆返回的数据: "+result);
             JSONObject jsonObject = JSON.parseObject(result);
             if(jsonObject.getInteger("code")==0)
             {
                 /* 登陆成功 */
                 Cookie clientCookie = new Cookie("token",jsonObject.getString("data"));
-                clientCookie.setMaxAge(60*50);
+                clientCookie.setMaxAge(60);
                 clientCookie.setPath("/");
-                clientCookie.setDomain("test.com");
+                clientCookie.setDomain("localhost");
                 response.addCookie(clientCookie);
                 return jsonObject.getInteger("code")+"";
             }

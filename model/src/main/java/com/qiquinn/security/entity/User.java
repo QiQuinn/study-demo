@@ -3,7 +3,6 @@ package com.qiquinn.security.entity;
 import com.qiquinn.security.utils.verdifyparam.customeranotation.DateVertify;
 
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 /**
@@ -13,7 +12,9 @@ import java.io.Serializable;
  * @Modified By:
  */
 
-public class User implements Serializable {
+public class User implements Serializable
+{
+    private static final long serialVersionUID = -3210884885630038713L;
     private Integer id;
     @NotEmpty(message = "用户名不能为空")
     private String username;
@@ -45,28 +46,12 @@ public class User implements Serializable {
                 '}';
     }
 
-    public String getPicUrl() {
-        return picUrl;
+    public Integer getId() {
+        return id;
     }
 
-    public void setPicUrl(String picUrl) {
-        this.picUrl = picUrl;
-    }
-
-    public String getCreateDate() {
-        return createDate;
-    }
-
-    public void setCreateDate(String createDate) {
-        this.createDate = createDate;
-    }
-
-    public String getModifyDate() {
-        return modifyDate;
-    }
-
-    public void setModifyDate(String modifyDate) {
-        this.modifyDate = modifyDate;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getUsername() {
@@ -123,5 +108,29 @@ public class User implements Serializable {
 
     public void setAge(Integer age) {
         this.age = age;
+    }
+
+    public String getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(String createDate) {
+        this.createDate = createDate;
+    }
+
+    public String getModifyDate() {
+        return modifyDate;
+    }
+
+    public void setModifyDate(String modifyDate) {
+        this.modifyDate = modifyDate;
+    }
+
+    public String getPicUrl() {
+        return picUrl;
+    }
+
+    public void setPicUrl(String picUrl) {
+        this.picUrl = picUrl;
     }
 }

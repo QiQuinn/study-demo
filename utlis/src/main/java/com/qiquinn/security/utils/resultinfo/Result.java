@@ -90,4 +90,24 @@ public class Result extends HashMap<String,Object>
         this.put("message",message);
         return this;
     }
+
+    /**
+      * @Author:QiQuinn
+      * @Desicription: 报错返回信息
+      * @Date:Created in 2019/7/16 15:27
+      * @param code 错误码
+      * @param message 错误信息
+      * @param ex  错误类型
+      *@return java.util.Map<java.lang.String,java.lang.Object>
+      * @Modified By:
+      */
+    public Map<String,Object> putErrorExption(Integer code,String message,Exception ex)
+    {
+        this.put("ret",false);
+        this.put("msg", "操作失败");
+        this.put("code",code);
+        this.put("message",message);
+        this.put("data",ex.toString());
+        return this;
+    }
 }

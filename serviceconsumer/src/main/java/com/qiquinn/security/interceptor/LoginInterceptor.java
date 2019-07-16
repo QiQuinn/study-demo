@@ -24,14 +24,14 @@ import java.util.Map;
  */
 public class LoginInterceptor implements HandlerInterceptor
 {
-
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         System.out.println("======== 拦截器 ============");
         String urlString = request.getRequestURL().toString();
         String contextPath = request.getContextPath();
         String method = request.getMethod();
-        System.out.println("method: "+method);
+        System.out.println("contextPath: "+contextPath);
+        System.out.println("url: "+urlString);
         if(urlString.endsWith("login")&&"POST".equals(method))
         {
             return true;
@@ -64,11 +64,11 @@ public class LoginInterceptor implements HandlerInterceptor
 
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, @Nullable ModelAndView modelAndView) throws Exception {
-
+        System.out.println("=============== postHandle ================");
     }
 
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, @Nullable Exception ex) throws Exception {
-
+        System.out.println("=============== afterCompletion ================");
     }
 }

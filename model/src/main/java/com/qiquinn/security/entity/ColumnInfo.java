@@ -19,28 +19,27 @@ public class ColumnInfo implements Serializable {
     
     public ColumnInfo(){}
 
+    public Integer getId() {
+        return id;
+    }
+
     public void setId(Integer id) {
         this.id = id;
     }
-    
-    public Integer getId() {
-        return id;
+
+    public String getName() {
+        return name;
     }
 
     public void setName(String name) {
         this.name = name;
     }
-    
-    public String getName() {
-        return name;
+
+    public Integer getParentId() {
+        return parentId;
     }
 
     public void setParentId(Integer parentId) {
         this.parentId = parentId;
     }
-    
-    public Integer getParentId() {
-        return parentId;
-    }
-
 }

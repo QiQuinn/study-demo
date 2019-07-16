@@ -6,33 +6,29 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="serviceimpl" />
-        <module name="utlis" />
-        <module name="serviceconsumer" />
-        <module name="model" />
         <module name="dao" />
-        <module name="serviceprovider" />
+        <module name="model" />
         <module name="service" />
+        <module name="serviceconsumer" />
+        <module name="serviceimpl" />
+        <module name="serviceprovider" />
+        <module name="utlis" />
+        <module name="web" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="comsumer" target="1.8" />
+      <module name="dao" target="1.8" />
+      <module name="model" target="1.8" />
       <module name="provider" target="1.7" />
+      <module name="security_dubbo" target="1.8" />
+      <module name="service" target="1.8" />
       <module name="servicecomsumer" target="1.7" />
+      <module name="serviceconsumer" target="1.8" />
+      <module name="serviceimpl" target="1.8" />
+      <module name="serviceprovider" target="1.8" />
+      <module name="utlis" target="1.8" />
+      <module name="web" target="1.8" />
     </bytecodeTargetLevel>
-  </component>
-  <component name="JavacSettings">
-    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="comsumer" options="-parameters" />
-      <module name="dao" options="-parameters" />
-      <module name="model" options="-parameters" />
-      <module name="provider" options="-parameters" />
-      <module name="service" options="-parameters" />
-      <module name="servicecomsumer" options="-parameters" />
-      <module name="serviceconsumer" options="-parameters" />
-      <module name="serviceimpl" options="-parameters" />
-      <module name="serviceprovider" options="-parameters" />
-      <module name="utlis" options="-parameters" />
-    </option>
   </component>
 </project>

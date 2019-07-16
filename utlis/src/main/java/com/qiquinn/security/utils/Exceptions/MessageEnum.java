@@ -21,11 +21,12 @@ public enum MessageEnum {
     ERRPR_SYSTEM_DATABASE(5002,"数据库访问失败"),
     ERROR_RIDES_INCREASE(1100,"redis递增因子必须大于0"),
     ERROR_RIDES_DDR(1101,"redis递减因子必须大于0"),
+    ERROR_REDIS_WRITE(1102,"redis写入错误"),
+    ERROR_REDIS_READ(1103,"redis读取错误"),
 
 
 
-    SUSSECC(0,"操作成功")
-    ;
+    SUSSECC(0,"操作成功");
 
 
     private Integer code;

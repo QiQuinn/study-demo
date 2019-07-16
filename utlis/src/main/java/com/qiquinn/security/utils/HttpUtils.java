@@ -57,8 +57,6 @@ public class HttpUtils
         httpPost.setEntity(stringEntity);
         System.out.println( stringEntity.toString() );
 //        httpPost.setEntity(new UrlEncodedFormEntity(list,encoding));
-        System.out.println("url: "+url);
-        System.out.println("map :"+map.toString());
         //设置hander
         httpPost.addHeader("Content-Type", "application/json;charset=utf-8");
 //        httpPost.setHeader("Content-type", "application/json");

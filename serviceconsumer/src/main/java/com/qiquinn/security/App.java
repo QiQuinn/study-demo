@@ -20,7 +20,7 @@ import org.springframework.context.annotation.ComponentScan;
 @EnableDubboConfig
 @DubboComponentScan(basePackages = "com.qiquinn.security.controller")
 @EnableAutoConfiguration
-@ComponentScan("com.qiquinn.security.controller,com.qiquinn.security.utils")
+@ComponentScan("com.qiquinn.security.controller,com.qiquinn.security.utils,com.qiquinn.security.interceptor")
 public class App 
 {
 

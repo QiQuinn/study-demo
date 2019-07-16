@@ -1,18 +1,25 @@
 package com.qiquinn.security.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
+import com.qiquinn.security.entity.ColumnInfo;
 import com.qiquinn.security.entity.User;
 import com.qiquinn.security.service.UserService;
 import com.qiquinn.security.utils.Exceptions.MessageEnum;
 import com.qiquinn.security.utils.ResultUtils;
+import com.qiquinn.security.utils.SerializeUtils;
 import com.qiquinn.security.utils.redis.RedisUtils;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import sun.plugin2.message.Message;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -29,6 +36,58 @@ public class UserController
     private UserService userService;
     @Autowired
     private RedisUtils redisUtils ;
+
+
+    @RequestMapping("/save")
+    public String save()
+    {
+        long start = System.currentTimeMillis();
+        List<ColumnInfo> list = new ArrayList<>();
+        for(int i=0;i<1000000;i++)
+        {
+            ColumnInfo c = new ColumnInfo();
+            c.setId(i);
+            c.setName("S"+i);
+            c.setParentId(i);
+            list.add(c);
+        }
+        redisUtils.lSet("list",list);
+        return "系统存储耗时: "+ (System.currentTimeMillis()-start);
+    }
+    @RequestMapping("/csave")
+    public String cSave()
+    {
+        long start = System.currentTimeMillis();
+        List<ColumnInfo> list = new ArrayList<>();
+        for(int i=0;i<1000000;i++)
+        {
+            ColumnInfo c = new ColumnInfo();
+            c.setId(i);
+            c.setName("C"+i);
+            c.setParentId(i);
+            list.add(c);
+        }
+        byte[] bytes = SerializeUtils.serialize(list);
+        redisUtils.setObjcetMySerlizable("clist",bytes,11111);
+        return "系统存储耗时: "+ (System.currentTimeMillis()-start);
+    }
+
+    @RequestMapping("/getlist")
+    public String getlist()
+    {
+        long start = System.currentTimeMillis();
+        List<Object> list = redisUtils.lGet("list",0,-1);
+        System.out.println(list.toString());
+        return "系统读取耗时: "+(System.currentTimeMillis()-start);
+    }
+    @RequestMapping("/getclist")
+    public String getcList()
+    {
+        long start = System.currentTimeMillis();
+        Object obj = redisUtils.getObjectMySerlizable("clist");
+        System.out.println(obj+"");
+        return "系统读取耗时: "+(System.currentTimeMillis()-start);
+    }
 
     @RequestMapping(value = "/login",method = RequestMethod.POST)
     @ResponseBody
@@ -50,15 +109,18 @@ public class UserController
             else
             {
                 String key = DigestUtils.md5Hex(username+password+sign);
-                redisUtils.setObject(key,user,60*50);
+                user.setPassword("");
+                redisUtils.setObject(key, user,2222);
+                Object obj = redisUtils.getObject(key);
+                User resultUser = (User) obj;
+                System.out.println("serliza: "+ resultUser);
                 return ResultUtils.seccuss(MessageEnum.SUSSECC.getMsg(),key);
             }
         }
         catch (Exception ex)
         {
-            ex.printStackTrace();
             return ResultUtils.error(MessageEnum.UNKONW_EROOR.getCode(),
-                    MessageEnum.UNKONW_EROOR.getMsg());
+                    MessageEnum.UNKONW_EROOR.getMsg(),ex);
         }
     }
 
@@ -83,7 +145,6 @@ public class UserController
         }
         catch (Exception ex)
         {
-            ex.printStackTrace();
             return ResultUtils.error(MessageEnum.ERROR_AUTHORIZATION.getCode(),
                     MessageEnum.ERROR_AUTHORIZATION.getMsg());
         }

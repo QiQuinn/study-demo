@@ -13,7 +13,18 @@ spring:
   #spring环境配置
   profiles:
     active: dev
-
+  redis:
+    database: 0
+    host: 192.168.149.128
+    port: 6379
+    password:
+    timeout: 5000
+    lettuce:
+      pool:
+        max-active: 8
+        max-idle: 8
+        max-wait: 3
+        min-idle: 0
 
 mybatis:
   #xml扫描位置

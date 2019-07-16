@@ -37,4 +37,10 @@ public class ResultUtils
         Result result = new Result();
         return result.putError(code,message);
     }
+
+    public static Map<String,Object> error(Integer code,String message,Exception ex)
+    {
+        Result result = new Result();
+        return result.putErrorExption(code, message, ex);
+    }
 }
