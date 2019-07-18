@@ -1,6 +1,7 @@
 package com.qiquinn.security.entity;
 
 import com.qiquinn.security.utils.verdifyparam.customeranotation.DateVertify;
+import org.apache.commons.codec.digest.DigestUtils;
 
 import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
@@ -67,7 +68,7 @@ public class User implements Serializable
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        this.password = password ;
     }
 
     public String getNikename() {

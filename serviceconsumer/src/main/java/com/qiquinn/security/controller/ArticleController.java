@@ -4,8 +4,8 @@ import com.alibaba.dubbo.config.annotation.Reference;
 import com.qiquinn.security.entity.ArticleInfo;
 import com.qiquinn.security.service.ArticleService;
 import com.qiquinn.security.utils.Exceptions.CustomerExpection;
-import com.qiquinn.security.utils.Exceptions.MessageEnum;
-import com.qiquinn.security.utils.ResultUtils;
+import com.qiquinn.security.utils.stringenum.MessageEnum;
+import com.qiquinn.security.utils.ResultSerlizerUtils;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -29,7 +29,7 @@ public class ArticleController
                     , MessageEnum.ERROR_USER_NULL.getMsg()
                     ,"getAriticleById",this);
         }
-        return ResultUtils.seccuss(articleInfo);
+        return ResultSerlizerUtils.seccuss(articleInfo);
     }
 
     @RequestMapping(value = "/insert", method = RequestMethod.POST)

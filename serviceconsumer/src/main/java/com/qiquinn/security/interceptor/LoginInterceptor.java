@@ -4,7 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.qiquinn.security.utils.CookieUtils;
 import com.qiquinn.security.utils.Exceptions.CustomerExpection;
-import com.qiquinn.security.utils.Exceptions.MessageEnum;
+import com.qiquinn.security.utils.stringenum.MessageEnum;
 import com.qiquinn.security.utils.HttpUtils;
 import org.springframework.lang.Nullable;
 import org.springframework.util.StringUtils;

@@ -1,6 +1,9 @@
 package com.qiquinn.security.utils;
 
-import com.qiquinn.security.utils.Exceptions.CustomerExpection;
+import com.esotericsoftware.kryo.Kryo;
+import com.esotericsoftware.kryo.io.Input;
+import com.esotericsoftware.kryo.io.Output;
+import org.nustaq.serialization.FSTConfiguration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -18,7 +21,87 @@ public class SerializeUtils
 {
     private static Logger log = LoggerFactory.getLogger(SerializeUtils.class);
 
-    public static byte[] serialize(Object object)
+    private static Kryo kryo = new Kryo();
+
+    public SerializeUtils(){}
+
+    static FSTConfiguration configuration = FSTConfiguration.createDefaultConfiguration();
+
+    /**
+     * @Author:QiQuinn
+     * @Desicription: FST序列化
+     * @Date:Created in 2019/7/18 10:33
+     * @param obj  对象
+     *@return byte[]
+     * @Modified By:
+     */
+    public static byte[] serialize(Object obj)
+    {
+        return configuration.asByteArray(obj);
+    }
+
+    /**
+     * @Author:QiQuinn
+     * @Desicription: Fst反序列化
+     * @Date:Created in 2019/7/18 10:32
+     * @param sec  字节数组
+     *@return java.lang.Object
+     * @Modified By:
+     */
+    public static Object unserialize(byte[] sec)
+    {
+        return configuration.asObject(sec);
+    }
+
+    /**
+      * @Author:QiQuinn
+      * @Desicription: 使用kryo序列化
+      * @Date:Created in 2019/7/18 11:29
+      * @param obj  对象
+      *@return byte[]
+      * @Modified By:
+      */
+    public static byte[] kryoSerizlize(Object obj) {
+        Kryo kryo = new Kryo();
+        byte[] buffer = new byte[1024*8000];
+        try(Output output = new Output(buffer)) {
+
+            kryo.writeClassAndObject(output, obj);
+            return output.toBytes();
+        } catch (Exception ex) {
+            log.error("kryoSerizlize失败！"+ex.toString(),ex);
+        }
+        return buffer;
+    }
+
+    /**
+      * @Author:QiQuinn
+      * @Desicription: 使用kryo反序列化
+      * @Date:Created in 2019/7/18 11:29
+      * @param src 字节码
+      *@return java.lang.Object
+      * @Modified By:
+      */
+    public static Object kryoUnSerizlize(byte[] src) {
+        try(
+                Input input = new Input(src)
+        ){
+            return kryo.readClassAndObject(input);
+        }catch (Exception ex) {
+            log.error("kryoUnSerizlize失败！"+ex.toString(),ex);
+        }
+        return kryo;
+    }
+
+    /**
+      * @Author:QiQuinn
+      * @Desicription: JDK序列化
+      * @Date:Created in 2019/7/18 11:29
+      * @param object
+      *@return byte[]
+      * @Modified By:
+      */
+    public static byte[] jdkSerialize(Object object)
     {
         ObjectOutputStream oos = null;
         ByteArrayOutputStream baos = null;
@@ -55,7 +138,15 @@ public class SerializeUtils
         return obj_bytes;
     }
 
-    public static <T> byte[] serialize(List<T> list) {
+    /**
+      * @Author:QiQuinn
+      * @Desicription: JDK巨蟹话List
+      * @Date:Created in 2019/7/18 11:30
+      * @param list  列表
+      *@return byte[]
+      * @Modified By:
+      */
+    public static <T> byte[] JdkSerialize(List<T> list) {
         if (list == null) {
             throw new NullPointerException("Can't serialize null");
         }
@@ -81,7 +172,15 @@ public class SerializeUtils
         return rv;
     }
 
-    public static Object unSerialize(byte[] bytes)
+    /**
+      * @Author:QiQuinn
+      * @Desicription: JDK反序列话
+      * @Date:Created in 2019/7/18 11:30
+      * @param bytes  字节码
+      *@return java.lang.Object
+      * @Modified By:
+      */
+    public static Object jdkUnSerialize(byte[] bytes)
     {
         Object obj = null;
         try {
@@ -96,9 +195,15 @@ public class SerializeUtils
         }
         return obj;
     }
-
-
-    public static <T> List<T> unserializeForList(byte[] bytes) {
+    /**
+      * @Author:QiQuinn
+      * @Desicription: JDK反序列化LIST
+      * @Date:Created in 2019/7/18 11:30
+      * @param bytes  字节码
+      *@return java.util.List<T>
+      * @Modified By:
+      */
+    public static <T> List<T> jdkUnserializeForList(byte[] bytes) {
         List<T> list = new ArrayList<T>();
         ByteArrayInputStream bis = null;
         ObjectInputStream is = null;

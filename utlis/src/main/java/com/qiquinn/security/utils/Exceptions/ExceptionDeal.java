@@ -1,7 +1,7 @@
 package com.qiquinn.security.utils.Exceptions;
 
 
-import com.qiquinn.security.utils.ResultUtils;
+import com.qiquinn.security.utils.ResultSerlizerUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -40,7 +40,7 @@ public class ExceptionDeal
     public Map<String,Object> defualtErrorHandler(CustomerExpection exception)
     {
         loggers.error(exception.toString(),exception);
-        return ResultUtils.error(exception.getCode(),exception.getMessage());
+        return ResultSerlizerUtils.error(exception.getCode(),exception.getMessage());
     }
 
     /**
@@ -64,6 +64,6 @@ public class ExceptionDeal
                     .collect(Collectors.joining(" | "));
         }
         loggers.error("参数验证错误: "+errorMessage+": "+ex.getLocalizedMessage());
-        return ResultUtils.error(1111,errorMessage);
+        return ResultSerlizerUtils.error(1111,errorMessage);
     }
 }

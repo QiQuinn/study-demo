@@ -142,3 +142,10 @@ service/target/
 *.iml
 *.class
 utlis/target/classes/com/qiquinn/security/utils/ResultUtils.class
+.idea/libraries/Maven__org_objenesis_objenesis_2_5_1.xml
+.idea/libraries/Maven__org_javassist_javassist_3_21_0_GA.xml
+.idea/libraries/Maven__de_ruedigermoeller_fst_2_57.xml
+.idea/libraries/Maven__com_esotericsoftware_minlog_minlog_1_2.xml
+.idea/libraries/Maven__com_esotericsoftware_kryo_kryo_2_24_0.xml
+*.log
+*.iml

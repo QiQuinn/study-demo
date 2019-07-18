@@ -1,6 +1,6 @@
 package com.qiquinn.security.utils.resultinfo;
 
-import com.qiquinn.security.utils.Exceptions.MessageEnum;
+import com.qiquinn.security.utils.stringenum.MessageEnum;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -26,6 +26,26 @@ public class Result extends HashMap<String,Object>
         this.put("msg", MessageEnum.SUSSECC.getMsg());
         this.put("code", MessageEnum.SUSSECC.getCode());
         this.put("message"," ");
+        this.put("data",object);
+        return this;
+    }
+    /**
+      * @Author:QiQuinn
+      * @Desicription: 登陆成功带token信息返回数据
+      * @Date:Created in 2019/7/18 12:03
+      * @param msg
+      * @param token
+      * @param object
+      *@return java.util.Map<java.lang.String,java.lang.Object>
+      * @Modified By:
+      */
+    public Map<String,Object> putSuccess(String msg,String token,Object object)
+    {
+        this.put("ret",true);
+        this.put("msg", MessageEnum.SUSSECC.getMsg());
+        this.put("code", MessageEnum.SUSSECC.getCode());
+        this.put("message",msg);
+        this.put("token",token);
         this.put("data",object);
         return this;
     }

@@ -1,4 +1,4 @@
-package com.qiquinn.security.utils.Exceptions;
+package com.qiquinn.security.utils.stringenum;
 
 /**
  * @Author:QiQuinn
@@ -17,6 +17,7 @@ public enum MessageEnum {
     EROOR_USER_PASSWORD_UPDATA(2003,"用户密码未修改"),
     ERROR_USER_ACTIVITY(2004,"用户未激活"),
     ERROR_USER_AUTHORIZATION(2005,"用户授权码错误"),
+    EROOR_USER_REGIST(2006,"注册失败"),
     ERROR_SYSTEM_REQUEST(5001,"请求错误"),
     ERRPR_SYSTEM_DATABASE(5002,"数据库访问失败"),
     ERROR_RIDES_INCREASE(1100,"redis递增因子必须大于0"),

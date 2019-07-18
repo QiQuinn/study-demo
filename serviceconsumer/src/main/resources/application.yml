@@ -27,7 +27,7 @@ spring:
         max-idle: 8
         max-wait: 3
         min-idle: 0
-    timeout: 5000
+    timeout: 1111111
 
 dubbo:
   application:

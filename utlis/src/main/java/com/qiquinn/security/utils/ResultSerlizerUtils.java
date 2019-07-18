@@ -3,6 +3,7 @@ package com.qiquinn.security.utils;
 import com.qiquinn.security.utils.resultinfo.Result;
 
 import javax.validation.constraints.Null;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -11,13 +12,19 @@ import java.util.Map;
  * @Date:Created in 2019/7/10
  * @Modified By:
  */
-public class ResultUtils
+public class ResultSerlizerUtils
 {
 
     public static Map<String,Object> seccuss(Object object)
     {
         Result result = new Result();
         return result.putSuccess(object);
+    }
+
+    public static Map<String,Object> loginSeccuss(String msg,String token,Object object)
+    {
+        Result result = new Result();
+        return result.putSuccess(msg,token,object);
     }
 
     public static Map<String,Object> seccuss(String msg,Object object)
