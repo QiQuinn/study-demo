@@ -1,6 +1,7 @@
 package com.qiquinn.security.aspect;
 
 
+import com.qiquinn.security.utils.IpUtils;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.slf4j.Logger;
@@ -24,7 +25,7 @@ public class LogMessage
     private final static Logger logger = LoggerFactory.getLogger(LogMessage.class);
 
     //注意方法必须是public否则扫描不到方法会报空指针
-    @Pointcut("execution(public * com.qiquinn.security.controller.*.*(..))")
+    @Pointcut("execution(public * com.qiquinn.security.controller..*.*(..))")
     public void LogMessage(){}
 
     @Before("LogMessage()")
@@ -32,15 +33,14 @@ public class LogMessage
     {
         ServletRequestAttributes servletRequestAttributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = servletRequestAttributes.getRequest();
-        logger.info("request: url={}",request.getRequestURL());
-
-        logger.info("request: method={}",request.getMethod());
-
-        logger.info("request: ip={}",request.getRemoteAddr());
-
-        logger.info("request: class_method={}",joinPoint.getSignature().getDeclaringTypeName()+"."+joinPoint.getSignature().getName());
-
-        logger.info("request: args={}",joinPoint.getArgs());
+        StringBuffer stringBuffer = new StringBuffer("访问日志： ");
+        stringBuffer.append("IP: "+ IpUtils.getIpAddr(request));
+        stringBuffer.append(" url: "+request.getRequestURL());
+        stringBuffer.append(" method: "+request.getMethod());
+        stringBuffer.append(" class_method: "+joinPoint.getSignature().getDeclaringTypeName()+"."+joinPoint.getSignature().getName());
+        stringBuffer.append(" args: "+joinPoint.getArgs());
+        logger.info("======================日志记录==========================");
+        logger.info(stringBuffer.toString());
     }
 
     @After("LogMessage()")

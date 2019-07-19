@@ -1,7 +1,6 @@
 CREATE database IF NOT exists sercurity;
 use sercurity;
 
-
 DROP TABLE IF exists `security_article_type`;
 CREATE TABLE `security_article_type`(
 	`id` int NOT NULL AUTO_INCREMENT,

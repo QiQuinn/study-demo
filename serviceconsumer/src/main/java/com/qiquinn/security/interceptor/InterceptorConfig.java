@@ -10,7 +10,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * @Date:Created in 2019/7/12
  * @Modified By:
  */
-//@Configuration
+@Configuration
 public class InterceptorConfig  implements WebMvcConfigurer
 {
     @Override

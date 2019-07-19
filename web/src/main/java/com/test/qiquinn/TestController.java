@@ -3,7 +3,7 @@ package com.test.qiquinn;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.qiquinn.security.utils.HttpUtils;
-import org.springframework.stereotype.Controller;
+import com.qiquinn.security.utils.stringenum.RedisSaveStringConfig;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.Cookie;
@@ -23,9 +23,10 @@ import java.util.Map;
 public class TestController
 {
     @GetMapping("login")
+    @ResponseBody
     public String webUser(HttpServletRequest request, HttpServletResponse response)
     {
-        Map<String,String> params = new HashMap<String,String>();
+        Map<String,Object> params = new HashMap<>();
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         if(null==username || null==password)
@@ -40,12 +41,11 @@ public class TestController
             if(jsonObject.getInteger("code")==0)
             {
                 /* 登陆成功 */
-                Cookie clientCookie = new Cookie("token",jsonObject.getString("data"));
-                clientCookie.setMaxAge(60);
+                Cookie clientCookie = new Cookie(RedisSaveStringConfig.USER_TOKEN,jsonObject.getString("token"));
+                clientCookie.setMaxAge(60*5);
                 clientCookie.setPath("/");
-                clientCookie.setDomain("localhost");
+                clientCookie.setDomain("");
                 response.addCookie(clientCookie);
-                return jsonObject.getInteger("code")+"";
             }
             return result;
         }

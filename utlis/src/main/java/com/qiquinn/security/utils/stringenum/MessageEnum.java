@@ -8,16 +8,20 @@ package com.qiquinn.security.utils.stringenum;
  */
 public enum MessageEnum {
     UNKONW_EROOR(-1,"位置错误"),
+    ERROR_SENDHTTP(-2,"发送请求失败"),
     ERROR_PARAM(1001,"参数格式错误"),
     ERROR_AUTHORIZATION(1002,"应用授权码错误"),
+    ERROR_AUTH_PARAMSNULL(1005,"授权参数错误"),
     ERROR_AUTHORIZATION_UPDATA(1003,"应用授权码过期"),
     ERROR_AUTHORIZATION_NULL(1004,"应用未授权"),
     ERROR_USER_NULL(2001,"用户不存在"),
     ERROR_USER_PASSWORD_WRONG(2002,"密码错误"),
-    EROOR_USER_PASSWORD_UPDATA(2003,"用户密码未修改"),
+    ERROR_USER_PASSWORD_UPDATA(2003,"用户密码未修改"),
     ERROR_USER_ACTIVITY(2004,"用户未激活"),
     ERROR_USER_AUTHORIZATION(2005,"用户授权码错误"),
     EROOR_USER_REGIST(2006,"注册失败"),
+    ERROR_USER_LOGINPARMAS_NOTNULL(2007,"登陆参数不能为空"),
+    ERROR_USER_NAMEISEXIST(2008,"用户名已经存在"),
     ERROR_SYSTEM_REQUEST(5001,"请求错误"),
     ERRPR_SYSTEM_DATABASE(5002,"数据库访问失败"),
     ERROR_RIDES_INCREASE(1100,"redis递增因子必须大于0"),
@@ -27,7 +31,8 @@ public enum MessageEnum {
 
 
 
-    SUSSECC(0,"操作成功");
+    SUSSECC(0,"操作成功"),
+    SUSSECC_LOGIN(0,"登陆成功");
 
 
     private Integer code;
